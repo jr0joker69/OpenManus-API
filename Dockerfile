@@ -1,13 +1,14 @@
 FROM python:3.10-slim
 
+# Set working directory (critical for imports)
 WORKDIR /app
 
-# Copy all project files into /app
+# Copy all project files into container
 COPY . /app
 
-# Upgrade pip and install dependencies
+# Install dependencies
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# Start the FastAPI server using server.py
+# Start FastAPI using server.py (Render will inject PORT)
 CMD ["python3", "server.py"]

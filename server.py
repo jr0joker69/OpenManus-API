@@ -1,6 +1,8 @@
 import os
 import sys
-sys.path.append("/app")  # Ensure models.py is importable
+
+# Ensure Python can import models.py inside /app
+sys.path.append("/app")
 
 from fastapi import FastAPI, Request
 from models import (

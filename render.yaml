@@ -9,7 +9,7 @@ services:
     envVars:
       - key: TELEGRAM_TOKEN
         sync: false
-        value: "8554029843:AAGSSFiZ6RPJarXdmywhRN9viKH0LCacirY"
+        value: "YOUR_TELEGRAM_TOKEN"
       - key: SERVER_URL
         sync: false
         value: "https://openmanus-api.onrender.com/chat"
