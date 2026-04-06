@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Make sure /app is in the Python path (important for Docker/Render)
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from fastapi import FastAPI, Request
 from models import (
     call_gemini_pro,
@@ -24,7 +30,7 @@ def run_fallback_chain(prompt):
             result = model(prompt)
             if result:
                 return result
-        except:
+        except Exception:
             continue
     return "All models failed."
 
