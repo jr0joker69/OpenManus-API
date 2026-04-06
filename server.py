@@ -1,10 +1,10 @@
 import os
 import sys
+from fastapi import FastAPI, Request
 
-# Ensure Python can import models.py inside /app
+# Ensure /app is in Python path
 sys.path.append("/app")
 
-from fastapi import FastAPI, Request
 from models import (
     call_gemini_pro,
     call_gemini_flash,
