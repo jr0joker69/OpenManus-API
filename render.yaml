@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: openmanus-api
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+        value: "YOUR_TELEGRAM_BOT_TOKEN"
+      - key: SERVER_URL
+        sync: false
+        value: "https://openmanus-api.onrender.com/chat"
+      - key: GEMINI_API_KEY
+        sync: false
+        value: "YOUR_GEMINI_KEY"
+      - key: MISTRAL_API_KEY
+        sync: false
+        value: "YOUR_MISTRAL_KEY"
+      - key: OPENROUTER_API_KEY
+        sync: false
+        value: "YOUR_OPENROUTER_KEY"
+      - key: GROQ_API_KEY
+        sync: false
+        value: "YOUR_GROQ_KEY"
