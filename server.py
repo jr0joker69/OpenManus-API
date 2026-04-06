@@ -1,5 +1,7 @@
 import os
 import sys
+sys.path.append("/app")  # Ensure models.py is importable
+
 from fastapi import FastAPI, Request
 from models import (
     call_gemini_pro,
@@ -12,14 +14,14 @@ from models import (
 
 app = FastAPI()
 
-def run_fallback_chain(prompt):
+def run_fallback_chain(prompt: str) -> str:
     chain = [
         call_gemini_pro,
         call_gemini_flash,
         call_mistral_large,
         call_openrouter_free,
         call_mistral_small,
-        call_groq
+        call_groq,
     ]
     for model in chain:
         try:
@@ -43,5 +45,5 @@ async def health():
 
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.getenv("PORT", 8000))
+    port = int(os.getenv("PORT", 8000))  # Render injects PORT
     uvicorn.run("server:app", host="0.0.0.0", port=port)
