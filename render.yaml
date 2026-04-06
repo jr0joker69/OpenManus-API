@@ -5,10 +5,11 @@ services:
     plan: free
     dockerfilePath: ./Dockerfile
     autoDeploy: true
+    healthCheckPath: /health
     envVars:
       - key: TELEGRAM_TOKEN
         sync: false
-        value: "YOUR_TELEGRAM_BOT_TOKEN"
+        value: "8554029843:AAGSSFiZ6RPJarXdmywhRN9viKH0LCacirY"
       - key: SERVER_URL
         sync: false
         value: "https://openmanus-api.onrender.com/chat"
